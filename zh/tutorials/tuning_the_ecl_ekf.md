@@ -254,9 +254,9 @@ EKF高度在飞行中远离GPS和高度计测量值，最常见原因是震动�
 * [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).hgt\_test\_ratio 将大于1.0
 
 
-推荐第一步使用一个有效的隔离安装系统确保飞控与机架隔离。一个隔离底座具有6个自由度，因此有6个共振频率。作为通用规则，安装在隔离底座上的飞控的的6个共振频率应该大于25Hz以避免与飞控动力学的交叉，并且低于点击的频率。
+推荐第一步使用一个有效的隔离安装系统确保飞控与机架隔离。一个隔离底座具有6个自由度，因此有6个共振频率。作为通用规则，安装在隔离底座上的飞控的的6个共振频率应该大于25Hz以避免与飞控动力学的交叉，并且低于电机的频率。
 
-如果共振频率与点击或螺旋桨的转动频率重合，隔离底座只会使得振动情况更加恶劣。
+如果共振频率与电机或螺旋桨的转动频率重合，隔离底座只会使得振动情况更加恶劣。
 
 通过进行以下参数修改，EKF可以变得对于震动引起的高度发散更加具有抵抗力：
 
@@ -288,7 +288,7 @@ EKF高度在飞行中远离GPS和高度计测量值，最常见原因是震动�
 
 * GPS信号丢失
 
-确定哪一个是主要因需需要系统的方法来分析EKF日志数据:
+确定哪一个是主要因素需要系统的方法来分析EKF日志数据:
 
 * 画出速度新息测试比曲线 - [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).vel\_test\_ratio
 
@@ -308,7 +308,7 @@ EKF高度在飞行中远离GPS和高度计测量值，最常见原因是震动�
   * 高频速度增量振动 - [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).vibe\[2\]
 
 
-常规操作期间，搜所有的测试比例应该保持在0.5以下，只是偶尔会出现尖峰，如下面一次顺利的飞行中的例子所示：
+常规操作期间，所有的测试比例应该保持在0.5以下，只是偶尔会出现尖峰，如下面一次顺利的飞行中的例子所示：
 
 ![Position, Velocity, Height and Magnetometer Test Ratios](../../assets/ecl/test_ratios_-_successful.png)
 
@@ -354,6 +354,6 @@ EKF高度在飞行中远离GPS和高度计测量值，最常见原因是震动�
 
 ### 确定GPS数据丢失
 
-GPS数据丢失将被速度和位置新息测试比'一蹶不振（flat-lining）'地显示出来。如果这个出现，检查 vehicle\_gps\_position 中的其他GPS状态数据找到更深入的信息。
+GPS数据丢失能够被速度和位置新息测试比曲线的'一蹶不振（flat-lining）'现象地显示出来。如果这个出现，检查 vehicle\_gps\_position 中的其他GPS状态数据找到更深入的信息。
 
 \(此处插入显示GPS数据丢失的示例图/insert example plots showing loss of GPS data here\)
